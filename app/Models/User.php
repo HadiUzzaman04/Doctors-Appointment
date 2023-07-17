@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Notifications\Notifiable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Modules\Backend\Entities\Department;
 
 class User extends Authenticatable implements JWTSubject
 {
@@ -14,13 +15,19 @@ class User extends Authenticatable implements JWTSubject
 
 
     protected $fillable = [
-        'role_id','name','username','email','phone','avatar','gender','password','status','deletable','created_by','modified_by'
+        'role_id','name','username','email','phone','avatar','gender','password','status', 'qualification','fee',
+        'department_id','details','deletable','created_by','modified_by'
     ];
 
     protected $hidden = [
         'password',
         'remember_token',  
     ];
+
+    public function department()
+    {
+        return $this->belongsTo(Department::class,'department_id','id');
+    }
 
     
     // Rest omitted for brevity

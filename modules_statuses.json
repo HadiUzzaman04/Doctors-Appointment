@@ -22,5 +22,6 @@
     "Report": true,
     "Sale": true,
     "ProductDamage": true,
-    "DamageProduct": true
+    "DamageProduct": true,
+    "Backend": true
 }

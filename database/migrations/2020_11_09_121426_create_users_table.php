@@ -18,13 +18,17 @@ class CreateUsersTable extends Migration
             $table->unsignedBigInteger('role_id');
             $table->foreign('role_id')->references('id')->on('roles');
             $table->string('name',50);
-            $table->string('username',30)->unique();
+            $table->string('username',30)->nullable();
             $table->string('email')->nullable();
             $table->string('phone',15)->unique();
             $table->string('avatar')->nullable();
             $table->enum('gender',['1','2','3'])->comment="1=Male,2=Female,3=Other";
             $table->string('password');
             $table->enum('status',['1','2'])->default('1')->comment = "1=Active, 2=Inactive";
+            $table->string('qualification')->nullable();
+            $table->string('fee')->nullable();
+            $table->string('department_id')->nullable();
+            $table->string('details')->nullable();
             $table->enum('deletable',['1','2'])->default('2')->comment = "1=No, 2=Yes";
             $table->string('created_by')->nullable();
             $table->string('modified_by')->nullable();
