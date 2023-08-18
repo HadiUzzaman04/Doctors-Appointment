@@ -1,4 +1,3 @@
-
 @extends('layouts.app')
 @section('title', $page_title)
 @push('styles')
@@ -32,7 +31,7 @@
                             <table id="dataTable" class="table table-bordered table-hover">
                                 <thead class="bg-primary">
                                     <tr>
-                                    <th>SL</th>
+                                        <th>SL</th>
                                         <th>Doctor Name</th>
                                         <th>Email</th>
                                         <th>Phone</th>
@@ -46,39 +45,39 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($data as $key=>$doctor)
-                                        <tr>
-                                            <td>{{ $key + 1 }}</td>
-                                            <td>{{ $doctor->name}}</td>
-                                            <td>{{ $doctor->email}}</td>
-                                            <td>{{ $doctor->phone}}</td>
-                                            <td>{{ $doctor->department->name}}</td>
-                                            <td>{{ $doctor->qualification}}</td>
-                                            <td>{{ $doctor->fee}}</td>
-                                            <td>{{ $doctor->details}}</td>
-                                            <td>
+                                    @foreach($data as $key=>$doctor)
+                                    <tr>
+                                        <td>{{ $key + 1 }}</td>
+                                        <td>{{ $doctor->name}}</td>
+                                        <td>{{ $doctor->email}}</td>
+                                        <td>{{ $doctor->phone}}</td>
+                                        <td>{{ $doctor->department->name}}</td>
+                                        <td>{{ $doctor->qualification}}</td>
+                                        <td>{{ $doctor->fee}}</td>
+                                        <td>{{ $doctor->details}}</td>
+                                        <td>
                                             @if($doctor->status ==1)
-                                                <a href="{{route('doctor.status', $doctor->id)}}" onclick="return confirm('Are you sure?')" class="btn btn-success">Active</a>
-                                                @else
-                                                <a href="{{route('doctor.status', $doctor->id)}}" onclick="return confirm('Are you sure?')" class="btn btn-danger">Inactive</a>
-                                                @endif
-                                            </td>
-                                            <td>
-                                                <img src="{{('storage/'.$doctor->avatar)}}" height="70px" width="70px" alt="image">
-                                            </td>
-                                            <td>
-                                                <div class="dropdown">
-                                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        Select
-                                                    </button>
-                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                        <a class="dropdown-item" href="{{route('doctor.edit', $doctor->id)}}">Edit</a>
-                                                        <a class="dropdown-item" onclick="return confirm('Are you sure?')" href="{{route('doctor.delete', $doctor->id)}}">Delete</a>
-                                                    </div>
+                                            <a href="{{route('doctor.status', $doctor->id)}}" onclick="return confirm('Are you sure?')" class="btn btn-success">Active</a>
+                                            @else
+                                            <a href="{{route('doctor.status', $doctor->id)}}" onclick="return confirm('Are you sure?')" class="btn btn-danger">Inactive</a>
+                                            @endif
+                                        </td>
+                                        <td>
+                                            <img src="{{('storage/'.$doctor->avatar)}}" height="70px" width="70px" alt="image">
+                                        </td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    Select
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                    <a class="dropdown-item" href="{{route('doctor.edit', $doctor->id)}}">Edit</a>
+                                                    <a class="dropdown-item" onclick="return confirm('Are you sure?')" href="{{route('doctor.delete', $doctor->id)}}">Delete</a>
                                                 </div>
-                                            </td>
-                                        </tr>
-                                        @endforeach
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -92,19 +91,3 @@
 </div>
 @include('backend::modal.doctormodal')
 @endsection
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

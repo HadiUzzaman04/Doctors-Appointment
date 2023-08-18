@@ -38,7 +38,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($data as $key=>$department)
+                                    @foreach($data as $key=>$department)
                                     <tr>
                                         <td>{{ $key + 1 }}</td>
                                         <td>{{ $department->name}}</td>
